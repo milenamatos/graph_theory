@@ -1,6 +1,6 @@
-from AdjMatrix import AdjacencyMatrix
-from IncMatrix import IncidenceMatrix
-from AdjList import AdjacencyList
+from src.AdjMatrix import AdjacencyMatrix
+from src.IncMatrix import IncidenceMatrix
+from src.AdjList import AdjacencyList
 
 class Graph:
     def __init__(self, vertices, edges):
