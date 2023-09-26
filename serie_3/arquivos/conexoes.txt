@@ -1,0 +1,14 @@
+Vila Sônia, Morumbi
+Morumbi, Butantã
+Butantã, Pinheiros
+Pinheiros, Faria Lima
+Pinheiros, Hebraica Rebouças
+Faria Lima, Fradique Coutinho
+Fradique Coutinho, Oscar Freire
+Oscar Freire, Paulista
+Paulista, Higienópolis
+Paulista, Trianon
+Higienópolis, República
+República, Luz
+República, Anhangabaú
+Luz, Tiradentes
