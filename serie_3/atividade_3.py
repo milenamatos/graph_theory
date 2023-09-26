@@ -1,18 +1,5 @@
 from src.AdjList import AdjacencyList
 
-class Graph:
-	def __init__(self, vertices, edges):
-			self.vertices = vertices
-			self.edges = edges
-
-	def num_vertices(self):
-			return len(self.vertices)
-
-	def add_edge(self, u, v):
-			if 0 <= u < self.num_vertices() and 0 <= v < self.num_vertices():
-					self.edges.append([u, v])
-
-
 def read_vertices():
 	vertices = []
 	
