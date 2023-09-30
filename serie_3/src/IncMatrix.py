@@ -43,7 +43,7 @@ class IncidenceMatrix:
             if v != vert_index and self.incidence_matrix[v][edge] == 1:
               neighbors.append(self.vertices[v])
 
-      print(f"Vizinhos de {vertice}:"," ".join(map(str, neighbors)))
+      return neighbors
 
 
     def has_edge(self, u, v):
@@ -103,3 +103,34 @@ class IncidenceMatrix:
       visited.remove(start)
 
       return None  # Não há caminho simples entre os vértices
+
+    def find_cycle(self, vertice):
+      visited = [False] * self.num_vertices() # Inicializa array com False em todas posições
+      path = []
+
+      def dfs(start_vertex, target_vertex, parent):
+        vertex_index = self.vertices.index(start_vertex)
+        visited[vertex_index] = True
+        path.append(start_vertex)
+
+        for neighbor in self.get_neighbors(start_vertex):
+          neighbor_index = self.vertices.index(neighbor)
+          if not visited[neighbor_index]:
+            if dfs(neighbor, target_vertex, start_vertex):
+              return True
+          elif neighbor != parent and neighbor == target_vertex:
+            path.append(neighbor)
+            return True
+        
+        if path[-1] == start_vertex:
+          # Remove o último vértice do caminho, já que não faz parte do ciclo
+          path.pop()
+
+        return False
+
+      if dfs(vertice, vertice, -1):
+        print(f"Existe um ciclo contendo o vértice {vertice}.")
+        print(f"Ciclo:"," ".join(map(str, path)))
+      else:
+        print(f"Não existe um ciclo contendo o vértice {vertice}.")
+
