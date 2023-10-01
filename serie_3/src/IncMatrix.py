@@ -134,3 +134,24 @@ class IncidenceMatrix:
       else:
         print(f"Não existe um ciclo contendo o vértice {vertice}.")
 
+    def is_subgraph(self, subgraph_vertices, subgraph_edges):
+      # Verifica se todos os vértices do subconjunto estão presentes no grafo principal
+      for vertice in subgraph_vertices:
+        if vertice not in self.vertices:
+          return False
+
+      # Verifica se todas as arestas do subconjunto estão presentes no grafo principal
+      for u, v in subgraph_edges:
+        u_index = self.vertices.index(u)
+        v_index = self.vertices.index(v)
+        is_edge_present = False
+
+        for edge in range(self.num_edges()):
+          if self.incidence_matrix[u_index][edge] == 1 and self.incidence_matrix[v_index][edge] == 1:
+            is_edge_present = True
+            break
+
+        if not is_edge_present:
+          return False
+
+      return True

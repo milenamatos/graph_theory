@@ -111,3 +111,18 @@ class AdjacencyList:
         print(f"Ciclo:"," ".join(map(str, path)))
       else:
         print(f"Não existe um ciclo contendo o vértice {vertice}.")
+
+    def is_subgraph(self, subgraph_vertices, subgraph_edges):
+      # Verifica se todos os vértices do subconjunto estão presentes no grafo principal
+      for vertice in subgraph_vertices:
+        if vertice not in self.vertices:
+          return False
+
+      # Verifica se todas as arestas do subconjunto estão presentes no grafo principal
+      for u, v in subgraph_edges:
+        u_index = self.vertices.index(u)
+        if v not in self.adjacency_list[u_index]:
+          return False
+
+      return True
+      
