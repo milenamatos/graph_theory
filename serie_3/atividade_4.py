@@ -1,9 +1,11 @@
 from src.AdjList import AdjacencyList
+import networkx as nx
+import matplotlib.pyplot as plt
 
 def read_vertices():
 	vertices = []
 	
-	with open('serie_3/arquivos/estacoes.txt', 'r') as file:
+	with open('serie_3/arquivos/destinos_latam.txt', 'r') as file:
 		for line in file:
 			vertices.append(line.strip())
 	
@@ -12,7 +14,7 @@ def read_vertices():
 def read_edges():
 	edges = []
 	
-	with open('serie_3/arquivos/conexoes.txt', 'r') as file:
+	with open('serie_3/arquivos/rotas.txt', 'r') as file:
 		for line in file:
 			vertices = line.strip().split(',')
 			if len(vertices) == 2:
@@ -20,6 +22,13 @@ def read_edges():
 	
 	return edges
 
+def render_graph(vertices, edges):
+	g = nx.Graph()
+	g.add_nodes_from(vertices)
+	g.add_edges_from(edges)
+
+	nx.draw(g, with_labels=True)
+	plt.show()  
 
 if __name__ == "__main__":
 	#Vertices
@@ -27,13 +36,16 @@ if __name__ == "__main__":
 	# Arestas
 	edges = read_edges()
 
+	render_graph(vertices, edges)
+
 	adj_list = AdjacencyList(vertices, edges)
 	adj_list.display_adjacency_list()
+
 	adj_list.get_all_degrees()
 		
 	# exemplo que não é subgrafo
-	subgraph_vertices = ['Pinheiros', 'Faria Lima', 'Oscar Freire']
-	subgraph_edges = [['Pinheiros', 'Faria Lima'], ['Faria Lima', 'Oscar Freire']]
+	subgraph_vertices = ['São Paulo', 'Florianópolis', 'Porto Alegre']
+	subgraph_edges = [['São Paulo', 'Florianópolis'], ['Florianópolis', 'Porto Alegre']]
 
 	if(adj_list.is_subgraph(subgraph_vertices, subgraph_edges)):
 		print(f"Vértices {subgraph_vertices}; arestas {subgraph_edges} é subgrafo")
@@ -41,8 +53,8 @@ if __name__ == "__main__":
 		print(f"Vértices {subgraph_vertices}; arestas {subgraph_edges} NÃO é subgrafo")
 
 	# exemplo de subgrafo
-	subgraph_vertices = ['Luz', 'República', 'Higienópolis', 'Tiradentes']
-	subgraph_edges = [['Luz', 'República'], ['República', 'Higienópolis'], ['Tiradentes', 'Luz']]
+	subgraph_vertices = ['Fortaleza', 'Goiânia', 'Rio de Janeiro', 'Brasilia']
+	subgraph_edges = [['Fortaleza', 'Rio de Janeiro'], ['Rio de Janeiro', 'Brasilia'], ['Brasilia', 'Goiânia']]
 
 	if(adj_list.is_subgraph(subgraph_vertices, subgraph_edges)):
 		print(f"Vértices {subgraph_vertices}; arestas {subgraph_edges} é subgrafo")

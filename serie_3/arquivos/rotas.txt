@@ -1,0 +1,44 @@
+São Paulo, Belo Horizonte
+Brasilia, Belo Horizonte
+Salvador, Belo Horizonte
+Joinville, Belo Horizonte
+São José do Rio Preto, Belo Horizonte
+Goiânia, Belo Horizonte
+Cuiabá, Belo Horizonte
+Florianópolis, Belo Horizonte
+Porto Alegre, Belo Horizonte
+Curitiba, Belo Horizonte
+São Paulo, Brasilia
+Goiânia, Brasilia
+Palmas, Brasilia
+Cuiabá, Brasilia
+Joinville, Brasilia
+Rio de Janeiro, Brasilia
+Salvador, Brasilia
+Recife, Brasilia
+São Paulo, Cuiabá
+Florianópolis, Cuiabá
+Goiânia, Cuiabá
+Curitiba, Cuiabá
+Porto Alegre, Cuiabá
+Joinville, Cuiabá
+Rio de Janeiro, Cuiabá
+São Paulo, Curitiba
+Porto Alegre, Curitiba
+Joinville, Curitiba
+Florianópolis, Curitiba
+São José do Rio Preto, Curitiba
+Brasilia, Curitiba
+Goiânia, Curitiba
+Florianópolis, São Paulo
+Florianópolis, Brasilia
+Florianópolis, Goiânia
+Rio de Janeiro, São Paulo
+Rio de Janeiro, Porto Alegre
+Rio de Janeiro, Fortaleza
+Rio de Janeiro, Florianópolis
+Rio de Janeiro, Recife
+Salvador, Recife
+Salvador, São Paulo
+Salvador, Curitiba
+Salvador, Fortaleza
