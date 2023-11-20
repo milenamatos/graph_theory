@@ -1,4 +1,6 @@
 from itertools import permutations
+import networkx as nx
+import matplotlib.pyplot as plt
 
 class Graph:
     # Grafo implementado por uma lista de adjacencia
@@ -43,6 +45,15 @@ def is_isomorphic(g1, g2):
 
     return False
 
+def render_graph(g):
+    graph = nx.Graph()
+    graph.add_nodes_from(g.vertices)
+    graph.add_edges_from(g.edges)
+
+    pos = nx.circular_layout(graph)
+    nx.draw(graph, with_labels=True, pos=pos)
+    plt.show()  
+
 # Exemplos:
 
 # Caso 1 - é isomorfico
@@ -56,6 +67,8 @@ graph1 = Graph(vertices1, edges1)
 graph2 = Graph(vertices2, edges2)
 result = is_isomorphic(graph1, graph2)
 print(f"É isomorfico: {result}") 
+render_graph(graph1)
+render_graph(graph2)
 
 # Caso 2 - não é isomorfico (número diferente de arestas)
 vertices1 = [1, 2, 3, 4, 5]
@@ -68,6 +81,8 @@ graph1 = Graph(vertices1, edges1)
 graph2 = Graph(vertices2, edges2)
 result = is_isomorphic(graph1, graph2)
 print(f"É isomorfico: {result}")
+render_graph(graph1)
+render_graph(graph2)
 
 # Caso 3 - não é isomorfico (número diferente de vértices)
 vertices1 = [1, 2, 3]
@@ -80,6 +95,8 @@ graph1 = Graph(vertices1, edges1)
 graph2 = Graph(vertices2, edges2)
 result = is_isomorphic(graph1, graph2)
 print(f"É isomorfico: {result}")
+render_graph(graph1)
+render_graph(graph2)
 
 # Caso 4 - não é isomorfico (arestas diferentes)
 vertices1 = [1, 2, 3, 4, 5]
@@ -92,15 +109,5 @@ graph1 = Graph(vertices1, edges1)
 graph2 = Graph(vertices2, edges2)
 result = is_isomorphic(graph1, graph2)
 print(f"É isomorfico: {result}")
-
-# Caso 5 - é isomórfico 
-vertices1 = ['A', 'B','C', 'D']
-edges1 = [['A', 'B'], ['A', 'C'], ['B', 'D'], ['C', 'D']]
-
-vertices2 = ['X', 'Y', 'Z', 'W']
-edges2 = [['X', 'Y'], ['X', 'Z'], ['Y', 'W'], ['Z', 'W']]
-
-graph1 = Graph(vertices1, edges1)
-graph2 = Graph(vertices2, edges2)
-result = is_isomorphic(graph1, graph2)
-print(f"É isomorfico: {result}")
+render_graph(graph1)
+render_graph(graph2)
